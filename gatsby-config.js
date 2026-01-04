@@ -1,16 +1,23 @@
-// gatsby-config.js
 module.exports = {
   siteMetadata: {
-    title: "Your Site Title",
-    // ...
+    title: `My Ecommerce Store`,
   },
   plugins: [
+    // 1. Tell Gatsby to look at your CMS products folder
     {
-      resolve: "some-plugin",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        // plugin options here
-      }
+        name: `products`,
+        path: `${__dirname}/content/products`, // This must match your config.yml folder
+      },
     },
-    // other plugins
+    // 2. This turns the markdown files from the CMS into data Gatsby can use
+    `gatsby-transformer-remark`,
+    // 3. This handles your images so they load fast
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    // 4. Netlify specific plugin (helps with redirects and headers)
+    `gatsby-plugin-netlify`,
   ],
-};
+}

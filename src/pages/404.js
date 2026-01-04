@@ -1,3 +1,8 @@
+// src/pages/404.js
+import React from "react";
+import { Helmet } from "react-helmet"; // if you use Helmet
+// ... rest of the file
+
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import * as styles from './404.module.css';

@@ -1,7 +1,8 @@
-module.exports = {
-  siteMetadata: {
-    title: `Gatsby Sydney Ecommerce Theme`,
-    siteUrl: `https://jamm.matter.design`,
+{
+  resolve: `gatsby-source-filesystem`,
+  options: {
+    name: `products`,
+    path: `${__dirname}/content/products`, // Make sure this matches your config.yml folder!
   },
-  plugins: [],
-};
+},
+`gatsby-transformer-remark`, // This turns the CMS files into data Gatsby can read

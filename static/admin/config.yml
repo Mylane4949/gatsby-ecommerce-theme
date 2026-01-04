@@ -1,18 +1,19 @@
 backend:
   name: git-gateway
-  branch: main # Check if your GitHub branch is 'main' or 'master'
+  branch: main # Change to 'master' if that is your default branch name
 
-media_folder: "public/images/products" # Where images will be saved
-public_folder: "/images/products" # Where the website will look for images
+media_folder: "static/images/products" # Where images will be uploaded
+public_folder: "/images/products"      # The path Gatsby uses to find them
 
 collections:
   - name: "products"
     label: "Products"
-    folder: "content/products" # CHANGE THIS to where your product files live
+    folder: "content/products" # This is where Gatsby usually looks for data
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Price", name: "price", widget: "number", value_type: "float" }
-      - { label: "Description", name: "body", widget: "markdown" }
       - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Category", name: "category", widget: "select", options: ["Bags", "Shoes", "Accessories"] }

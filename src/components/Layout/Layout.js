@@ -1,19 +1,8 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-
-import Header from '../Header';
-import Footer from '../Footer';
-import * as styles from './Layout.module.css';
-
-// CSS not modular here to provide global styles
-import './Globals.css';
-
-const Layout = ({ props, children, disablePaddingBottom = false }) => {
-  return (
-    <>
-      <Helmet>
-        {/* Add any sitewide scripts here */}
+<Helmet>
+        <title>My Store</title>
+        {/* Load the Netlify Identity Widget Script */}
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        
         <link
           rel="stylesheet"
           type="text/css"
@@ -22,37 +11,22 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
         <link
           rel="stylesheet"
           type="text/css"
-          charset="UTF-8"
+          charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
-            <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
+
+        {/* The Redirect Logic */}
+        <script>
+          {`
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                  window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+                }
+              });
+            }
+          `}
+        </script>
       </Helmet>
-
-      <Header />
-      <main
-        className={`${styles.main} ${
-          disablePaddingBottom === true ? styles.disablePaddingBottom : ''
-        }`}
-      >
-        {children}
-      </main>
-      <Footer />
-    </>
-  );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-export default Layout;

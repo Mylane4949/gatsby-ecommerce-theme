@@ -16,9 +16,15 @@
     "format": "prettier --write \"{gatsby-*.js,src/**/*.js}\"",
     "plop": "plop"
   },
-  "dependencies": {
+ "dependencies": {
     "gatsby": "^5.13.3",
     "gatsby-adapter-netlify": "^1.1.3",
+    "gatsby-plugin-netlify": "^5.1.1",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-remark": "^6.13.1",
+    "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",

@@ -3,7 +3,6 @@ module.exports = {
     title: "My Site",
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

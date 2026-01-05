@@ -1,15 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: `My Ecommerce Store`,
+    title: "My Site",
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `products`,
-        path: `${__dirname}/content/products`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
+  ],
+};
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -17,7 +20,6 @@ module.exports = {
     `gatsby-plugin-netlify`,
   ],
 };
-}
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {

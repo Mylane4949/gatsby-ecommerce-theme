@@ -6,9 +6,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `products`,
-        path: `${__dirname}/content/products`, 
+        name: `products`, // Change from 'posts' to 'products'
+        path: `${__dirname}/content/products`, // This is where your AI Wallpaper file lives
       },
+    },
+    `gatsby-transformer-remark`, // This "reads" the content of the .md files
+    `gatsby-plugin-netlify`,     // Essential for the CMS to work on Netlify
+    // ... leave your other plugins (like sharp, images, etc.) below this
+  ],
+}
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,

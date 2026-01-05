@@ -3,23 +3,25 @@ import { graphql } from 'gatsby'; // 1. Make sure graphql is imported
 import Layout from '../components/Layout/Layout';
 import ProductCard from '../components/ProductCard'; // Or whatever your card component is named
 
-const ShopPage = ({ data }) => { // 2. The 'data' prop comes from your query
-  const products = data.allMarkdownRemark.nodes; // 3. This is your list of real products
+const ShopPage = ({ data }) => { 
+  // 1. This connects the CMS data to the variable 'products'
+  const products = data?.allMarkdownRemark?.nodes || []; 
+
+  // 2. We also need to map the data so it matches what the ProductCard expects
+  const formattedProducts = products.map(product => ({
+    name: product.frontmatter.title,
+    price: product.frontmatter.price,
+    image: product.frontmatter.image,
+    imageAlt: product.frontmatter.title,
+  }));
 
   return (
     <Layout>
-      <h1>Shop</h1>
-      <div className="product-grid">
-        {products.map((product) => (
-  <ProductCard 
-    key={product.frontmatter.title}
-    name={product.frontmatter.title} // Change 'title' to 'name'
-    price={product.frontmatter.price}
-    image={product.frontmatter.image} // Pass the CMS image path
-    imageAlt={product.frontmatter.title}
-    showQuickView={() => console.log("Quick view clicked")}
-  />
-))}
+      <div className={styles.productContainer}>
+        {/* 3. Use 'formattedProducts' here */}
+        {formattedProducts.map((item, index) => (
+          <ProductCard key={index} {...item} />
+        ))}
       </div>
     </Layout>
   );

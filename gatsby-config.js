@@ -6,30 +6,17 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `products`, // Change from 'posts' to 'products'
-        path: `${__dirname}/content/products`, // This is where your AI Wallpaper file lives
+        name: `products`,
+        path: `${__dirname}/content/products`,
       },
     },
-    `gatsby-transformer-remark`, // This "reads" the content of the .md files
-    `gatsby-plugin-netlify`,     // Essential for the CMS to work on Netlify
-    // ... leave your other plugins (like sharp, images, etc.) below this
-  ],
-}
- // gatsby-config.js
-module.exports = {
-  siteMetadata: {
-    title: "My Site",
-  },
-  plugins: [
-    // plugin objects/strings here
-  ],
-};   },
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify`,
   ],
+};
 }
 const { createFilePath } = require(`gatsby-source-filesystem`)
 

@@ -15,7 +15,15 @@ module.exports = {
     // ... leave your other plugins (like sharp, images, etc.) below this
   ],
 }
-    },
+ // gatsby-config.js
+module.exports = {
+  siteMetadata: {
+    title: "My Site",
+  },
+  plugins: [
+    // plugin objects/strings here
+  ],
+};   },
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

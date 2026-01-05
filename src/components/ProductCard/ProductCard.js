@@ -20,7 +20,8 @@ const ProductCard = (props) => {
   } = props;
 
   const handleRouteToProduct = () => {
-    navigate('/product/sample');
+    // If props.slug exists, go there. Otherwise, go to sample.
+    navigate(props.slug || '/product/sample');
   };
 
   const handleQuickView = (e) => {

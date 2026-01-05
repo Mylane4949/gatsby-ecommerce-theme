@@ -11,13 +11,15 @@ const ShopPage = ({ data }) => { // 2. The 'data' prop comes from your query
       <h1>Shop</h1>
       <div className="product-grid">
         {products.map((product) => (
-          <ProductCard 
-            key={product.fields.slug}
-            title={product.frontmatter.title}
-            price={product.frontmatter.price}
-            image={product.frontmatter.image}
-          />
-        ))}
+  <ProductCard 
+    key={product.frontmatter.title}
+    name={product.frontmatter.title} // Change 'title' to 'name'
+    price={product.frontmatter.price}
+    image={product.frontmatter.image} // Pass the CMS image path
+    imageAlt={product.frontmatter.title}
+    showQuickView={() => console.log("Quick view clicked")}
+  />
+))}
       </div>
     </Layout>
   );

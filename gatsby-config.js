@@ -3,7 +3,6 @@ module.exports = {
     title: "My Site",
   },
   plugins: [
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -15,6 +14,5 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-netlify`,
   ],
 };

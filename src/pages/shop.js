@@ -32,13 +32,13 @@ export const query = graphql`
   query {
     allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content/products/"}}) {
       nodes {
+        fields {
+          slug
+        }
         frontmatter {
           title
           price
           image
-        }
-        fields {
-          slug
         }
       }
     }
